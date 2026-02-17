@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { OTC_PAIRS } from '../constants';
-import { TradingPair } from '../types';
-import BrandLogo from './BrandLogo';
+import { OTC_PAIRS } from '../constants.tsx';
+import { TradingPair } from '../types.ts';
+import BrandLogo from './BrandLogo.tsx';
 
 interface Candle {
   time: number;
@@ -54,14 +53,12 @@ const Dashboard: React.FC<{ onExit: () => void }> = ({ onExit }) => {
         const lastIdx = current.length - 1;
         const last = { ...current[lastIdx] };
 
-        // Handle strict 1-minute candle cycle
         if (min !== lastMinuteRef.current && sec === 0) {
           lastMinuteRef.current = min;
           const next = generateCandleData(last.close);
           return [...current.slice(1), { time: Date.now(), ...next }];
         }
 
-        // Real-time market jitter
         const jitter = (Math.random() - 0.5) * 1.5;
         last.close += jitter;
         last.high = Math.max(last.high, last.close);

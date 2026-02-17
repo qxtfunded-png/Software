@@ -1,18 +1,17 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { AppState, UserDetails, Plan } from './types';
-import LandingPage from './components/LandingPage';
-import LicenseGate from './components/LicenseGate';
-import SubscriptionFlow from './components/SubscriptionFlow';
-import Dashboard from './components/Dashboard';
-import ExitScreen from './components/ExitScreen';
-import LiveUsers from './components/LiveUsers';
+import { AppState, UserDetails, Plan } from './types.ts';
+import LandingPage from './components/LandingPage.tsx';
+import LicenseGate from './components/LicenseGate.tsx';
+import SubscriptionFlow from './components/SubscriptionFlow.tsx';
+import Dashboard from './components/Dashboard.tsx';
+import ExitScreen from './components/ExitScreen.tsx';
+import LiveUsers from './components/LiveUsers.tsx';
 
 const App: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<AppState>(AppState.LANDING);
   const [userDetails, setUserDetails] = useState<UserDetails>({ name: '', email: '' });
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
 
-  // Simple IP/Device logging simulation
   useEffect(() => {
     const fetchIp = async () => {
       try {
