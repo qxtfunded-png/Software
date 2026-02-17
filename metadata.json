@@ -1,0 +1,7 @@
+{
+  "name": "FINORIX UPDATE 2026 V2",
+  "description": "A premium binary options trading dashboard with dark neon aesthetics, featuring license management, subscription workflows, and real-time market simulations.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
